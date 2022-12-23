@@ -44,10 +44,39 @@ int isSymbol(string word) {
 }
 
 //getToken get word and description and generate token for syntax analysis
-string genToken(string word, string desc) {
-	return "Token";
+void genToken(string desc) {
+	cout<<"T-"<<desc<<endl;
 }
 
+//Lexical analysis
+void lexicalAnalysis(string word) {
+	if(isKey(word) == 1){
+		cout<<endl<<"Word "<<word<<" is key word || Token:> ";
+		genToken("KEY");
+	}
+	else if(isID(word) == 1) {
+		cout<<endl<<"Word "<<word<<" is ID || Token:> ";
+		genToken("ID");
+	}
+	else if(isInt(word) == 1) {
+		cout<<endl<<"Word "<<word<<" is integer number || Token:> ";
+		genToken("INT");
+	}
+	else if(isFloat(word) == 1) {
+		cout<<endl<<"Word "<<word<<" is float number || Token:> ";
+		genToken("FLOAT");
+	}
+	else if(isOperator(word) == 1) {
+		cout<<endl<<"Word "<<word<<" is key word || Token:> ";
+		genToken("OPERATOR");
+	}
+	else if(isSymbol(word) == 1) {
+		cout<<endl<<"Word "<<word<<" is key word || Token:> ";
+		genToken("SYMBOL");
+	}
+	else
+		cout<<endl<<"Error in word "<<word<<" (unknown word)"<<endl;
+}
 
 //start function
 int main() {
@@ -63,13 +92,15 @@ int main() {
 	//get file name from user
 	cin>>fileName;
 
+	//message for start compiling
+	cout<<endl<<"\"------------Start------------\""<<endl;
+
 	//opening file
 	file.open(fileName.c_str());
 
 	//extracting words from the file
 	while (file >> word) {
-		//displaying content
-		cout << word << endl;
+		lexicalAnalysis(word);
 	}
 
     return 0;
