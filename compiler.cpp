@@ -82,6 +82,40 @@ int isInt(string word) {
 
 //isFloat function for check word is float number or not
 int isFloat(string word) {
+   int state = 1; 
+	int dotCounter = 0; //count dot symbol for check float number have 1 dot or more
+	int exit = 0; //flag for exit for
+
+	word = word + " ||"; //add space to end of word
+	for(int ch=0; ch<word.size() && exit!=1; ch++) {
+		switch(state) {
+			case 1:
+				if(word[ch]>='0' && word[ch]<='9'){
+					state = 2;}
+				else {
+						return 0;
+						exit = 1;
+					}
+				break;
+			case 2:
+				if(word[ch] == ' ' && dotCounter == 1) {
+               return 1;
+               exit = 1;
+				}
+				else if(word[ch]>='0' && word[ch]<='9') {
+					state = 2;
+				}
+            else if(word[ch] == '.') {
+               dotCounter += 1;
+               state = 2;
+            }
+				else {
+					return 0;
+					exit = 1;
+				}
+				break;
+		}
+	}
 	return 0;
 }
 
