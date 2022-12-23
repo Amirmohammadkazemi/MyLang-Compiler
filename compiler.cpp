@@ -304,7 +304,7 @@ int main() {
 
 	//extracting words from the file
 	while (file >> word) {
-		lexicalAnalysis(word);
+		lexicalAnalysis(word); //Lexical Analysis for file words
 	}
 
     return 0;
