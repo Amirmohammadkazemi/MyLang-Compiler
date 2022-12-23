@@ -275,7 +275,7 @@ void lexicalAnalysis(string word) {
 		genToken("OPERATOR");
 	}
 	else if(isSymbol(word) == 1) {
-		cout<<endl<<"Word "<<word<<" is key word || Token:> ";
+		cout<<endl<<"Word "<<word<<" is symbol || Token:> ";
 		genToken("SYMBOL");
 	}
 	else
