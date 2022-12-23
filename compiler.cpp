@@ -271,7 +271,7 @@ void lexicalAnalysis(string word) {
 		genToken("FLOAT");
 	}
 	else if(isOperator(word) == 1) {
-		cout<<endl<<"Word "<<word<<" is key word || Token:> ";
+		cout<<endl<<"Word "<<word<<" is operator || Token:> ";
 		genToken("OPERATOR");
 	}
 	else if(isSymbol(word) == 1) {
