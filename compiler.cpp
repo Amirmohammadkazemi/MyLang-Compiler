@@ -217,6 +217,33 @@ int isOperator(string word) {
 
 //isSymbol function for check word is symbol or not
 int isSymbol(string word) {
+	int state  = 1;
+
+		switch(state) {
+			case 1:
+				if(word == ":") {
+					return 1;
+				}
+				else
+					state = 2;
+			case 2:
+				if(word == "(") {
+					return 1;
+				}
+				else
+					state = 3;
+			case 3:
+				if(word == ")") {
+					return 1;
+				}
+				else
+					state = 4;
+			case 4:
+				if(word == ";") {
+					return 1;
+				}
+				break;
+		}
 	return 0;
 }
 
