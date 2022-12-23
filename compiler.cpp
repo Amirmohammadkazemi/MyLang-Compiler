@@ -20,6 +20,33 @@ int isKey(string word) {
 
 //isID function for check word is ID or not
 int isID(string word) {
+	int state = 1;
+	int exit = 0; //flag for exit for
+
+	word = word + " "; //add space to end of word
+	for(int ch=0; ch<word.size() && exit!=1; ch++) {
+		switch(state) {
+			case 1:
+				if((word[ch]>='a' && word[ch]<='z')
+				|| (word[ch]>='A' && word[ch]<='Z'))
+					state = 2;
+				break;
+			case 2:
+				if (word[ch] == ' ') {
+					return 1;
+					exit = 1;
+				}
+				else if((word[ch]>='a' && word[ch]<='z')
+				|| (word[ch]>='A' && word[ch]<='Z')
+				|| (word[ch]>='0' && word[ch]<='9'))
+					state = 2;
+				else {
+					return 0;
+					exit = 1;
+				}
+				break;
+		}
+	}
 	return 0;
 }
 
