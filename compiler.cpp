@@ -121,6 +121,97 @@ int isFloat(string word) {
 
 //isOperator function for check word is operator or not
 int isOperator(string word) {
+	int state  = 1;
+	int exit = 0; //flag for exit for
+
+	word = word + " "; //add space to end of word
+	for(int ch=0; ch<word.size() && exit!=1; ch++) {
+		switch(state) {
+			case 1:
+				if(word[ch] == '*') {
+					return 1;
+					exit = 1;
+				}
+				else
+					state = 2;
+			case 2:
+				if(word[ch] == '/') {
+					return 1;
+					exit = 1;
+				}
+				else
+					state = 3;
+			case 3:
+				if(word[ch] == '+') {
+					return 1;
+					exit = 1;
+				}
+				else
+					state = 4;
+			case 4:
+				if(word[ch] == '-') {
+					return 1;
+					exit = 1;
+				}
+				else
+					state = 5;
+			case 5:
+				if(word[ch] == '=') {
+					return 1;
+					exit = 1;
+				}
+				else
+					state = 6;
+			case 6:
+				if(word[ch] == '<') {
+					return 1;
+					exit = 1;
+				}
+				else
+					state = 7;
+			case 7:
+				if(word[ch] == '>') {
+					return 1;
+					exit = 1;
+				}
+				else
+					state = 8;
+			case 8:
+				if(word[ch] == '<' && word[ch]+1 == '=') {
+					return 1;
+					exit = 1;
+				}
+				else
+					state = 9;
+			case 9:
+				if(word[ch] == '>' && word[ch]+1 == '=') {
+					return 1;
+					exit = 1;
+				}
+				else
+					state = 10;
+			case 10:
+				if(word[ch] == '=' && word[ch] == '=') {
+					return 1;
+					exit = 1;
+				}
+				else
+					state = 11;
+			case 11:
+				if(word[ch] == '!' && word[ch] == '=') {
+					return 1;
+					exit = 1;
+				}
+				else
+					state = 12;
+			case 12:
+				if(word[ch] == '=' && word[ch] == ':') {
+					return 1;
+					exit = 1;
+				}
+				break;
+		}
+	}
 	return 0;
 }
 
