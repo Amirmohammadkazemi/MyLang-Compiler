@@ -1,6 +1,7 @@
 //libraries
 #include <iostream>
 #include <string>
+#include <bits/stdc++.h>
 
 //namespaces
 using namespace std;
@@ -51,8 +52,25 @@ string genToken(string word, string desc) {
 //start function
 int main() {
 
-    startMessage(); //show start message
+	string fileName; //input file name
+	fstream file; //filestream variable file
+	string word; //word
+
+	//show start message
+    startMessage();
 	cout<<"Enter source file name:> ";
+
+	//get file name from user
+	cin>>fileName;
+
+	//opening file
+	file.open(fileName.c_str());
+
+	//extracting words from the file
+	while (file >> word) {
+		//displaying content
+		cout << word << endl;
+	}
 
     return 0;
 }
