@@ -52,6 +52,31 @@ int isID(string word) {
 
 //isInt function for check word is integer Number or not
 int isInt(string word) {
+	int state = 1; 
+	int exit = 0; //flag for exit for
+
+	word = word + " "; //add space to end of word
+	for(int ch=0; ch<word.size() && exit!=1; ch++) {
+		switch(state) {
+			case 1:
+				if(word[ch]>='0' && word[ch]<='9'){
+					state = 2;}
+				break;
+			case 2:
+				if(word[ch] == ' ') {
+					return 1;
+					exit = 1;
+				}
+				else if(word[ch]>='0' && word[ch]<='9') {
+					state = 2;
+				}
+				else {
+					return 0;
+					exit = 1;
+				}
+				break;
+		}
+	}
 	return 0;
 }
 
