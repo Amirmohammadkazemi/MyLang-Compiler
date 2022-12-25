@@ -70,6 +70,9 @@ int isInt(string word) {
 				else if(word[ch]>='0' && word[ch]<='9') {
 					state = 2;
 				}
+				else if(word[ch]>='-' && (word[ch+1]>='9' && word[ch+1]<='9')) {
+					state = 2;
+				}
 				else {
 					return 0;
 					exit = 1;
